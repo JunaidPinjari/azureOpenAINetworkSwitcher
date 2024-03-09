@@ -63,11 +63,3 @@ try:
 
 except Exception as e:
     print(f"Error, pls follow proper steps: {e}")
-
-
-# if //*[@id="_weave_e_582"] aria-checked="true", all networks selected, send click to //*[@id="_weave_e_585"]
-# iterate through ip addresses, go to
-# /html/body/div[1]/div[4]/div[1]/div[1]/main/div[3]/div[2]/section/div[1]/div[2]/div[2]/div[4]/div[2]/div/div/div[2]/div/div[2]/div[2]/div/div[2]/div[2]/div[7]/div[10]/div/div/div[2]/div/div[2]/div[1]/div{index}/div[1]/div[1]/div/div[2]/div/div/div/input
-
-# if //*[@id="_weave_e_585"] aria-checked="true", selected networks selected, send click to //*[@id="_weave_e_582"] and do nothing and print done
-# after all done, click //*[@id="_weave_e_560"]
