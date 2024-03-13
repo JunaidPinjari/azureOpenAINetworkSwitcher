@@ -1,8 +1,10 @@
 import json
+import os
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 
 # Read configuration for Chrome Driver executable path
 with open("config.json", "r") as f:
@@ -12,14 +14,15 @@ chrome_user_profile_path = config.get("chromeUserProfilePath")
 # Configure Selenium to connect to the existing Chrome instance
 options = Options()
 options.add_argument("--remote-debugging-port=9222")
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
 options.add_argument(f'user-data-dir={chrome_user_profile_path}')
-
+service = Service(f'{os.getcwd()}/chromedriver.exe')
 # Initialize WebDriver with the path to chromedriver if not in PATH
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(service=service, options=options)
 
 # Now you can control the existing Chrome window
-driver.get('https://portal.azure.com')
-input("Please login and press enter")
+# driver.get('https://portal.azure.com')
+input("Please login and press enter: ")
 
 try:
     driver.get(config['azureNetworkingTabURL'])
